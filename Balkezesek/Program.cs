@@ -11,7 +11,7 @@ namespace Balkezesek
     class Program
     {
         static List<Balkez> lista = new List<Balkez>();
-        static int beker = 1995;
+        static int beker = 0;
         static void Main(string[] args)
         {
             Beolvas();
@@ -23,7 +23,14 @@ namespace Balkezesek
             Feladat5();
             Console.Write("6.feladat: ");
             Feladat6();
+            Console.WriteLine("7.feladat: ");
+            Feladat7();
             Console.ReadKey();
+        }
+
+        private static void Feladat7()
+        {
+            
         }
 
         private static void Feladat6()
@@ -58,24 +65,25 @@ namespace Balkezesek
 
         private static void Feladat5()
         {
-            //try
-            //{
-            //    beker = int.Parse(Console.ReadLine());
-            //    Console.Write("Kérek egy 1990 és 1999 közötti évszámot!: ");
-                
-            //    if (beker>=1990 || beker<=1999)
-            //    {
-            //        Console.WriteLine(beker);
-            //    }
-                
-            //}
-            //catch (Exception ex)
-            //{
-            //    Console.WriteLine(ex.Message);
+            bool hibas = false;
+            do
+            {
 
-            //}
+                Console.Write("Adjon meg egy évszámot 1990 és 1999 között: ");
+                beker = int.Parse(Console.ReadLine());
+                if (beker < 1990 || beker > 1999)
+                {
+                    hibas = true;
+                    Console.WriteLine("Hibás adat adjon meg másik évszámot!");
+                }
+                else
+                {
+                    hibas = false;
+                }
+            }
+            while (hibas);
+
         }
-
         private static void Feladat4()
         {
             foreach (var i in lista)
